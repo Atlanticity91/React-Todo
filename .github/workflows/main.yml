@@ -22,7 +22,7 @@ jobs:
         node-version: '16'  # Use the Node.js version you prefer (adjust this if needed)
 
     - name: Install dependencies
-      run: npm install
+      run: npm install --legacy-peer-deps 
 
     - name: Build the app
       run: npm run build
