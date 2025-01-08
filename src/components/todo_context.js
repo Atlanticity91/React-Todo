@@ -1,4 +1,9 @@
-import React, { createContext, useState, useMemo } from 'react'
+import React, { 
+    createContext, 
+    useState, 
+    useMemo,
+    useCallback
+} from 'react'
 
 /**
  * TodoContext context
@@ -21,7 +26,7 @@ const TodoContextWrapper = ( { children } ) => {
      * @note : Add a new todo to the list.
      * @param todo_text : Text of the new todo.
      **/
-    const AddTodo = ( todo_text ) => {
+    const AddTodo = useCallback( ( todo_text ) => {
         setTodoList( [
             ...todo_list, 
             { 
@@ -30,29 +35,29 @@ const TodoContextWrapper = ( { children } ) => {
                 completed: false 
             }
         ]);
-    };
+    }, [ todo_list ] );
     
     /**
      * RemoveTodo method
      * @note : Remove a todo from the list.
      * @param todo_id : Query todo index to remove.
      **/
-    const RemoveTodo = ( todo_id ) => {
+    const RemoveTodo = useCallback( ( todo_id ) => {
         setTodoList( todo_list.filter( todo => todo.id !== todo_id ) );
-    };
+    }, [ todo_list ] );
     
     /**
      * toggleTodo method
      * @note : Toggle todo
      * @param todo_id : Query todo index to remove.
      **/
-    const ToggleTodo = ( todo_id ) => {
+    const ToggleTodo = useCallback( ( todo_id ) => {
         setTodoList(
             todo_list.map(
                 todo => todo.id === todo_id ? { ...todo, completed : !todo.completed } : todo
             ) 
         );
-    };
+    }, [ todo_list ] );
 
     // === MEMO HOOK ===
     const ContextMemo = useMemo( ( ) => ( {

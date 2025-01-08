@@ -7,7 +7,7 @@ import { TodoContext } from './todo_context.js'
  **/
 const AddTodo = ( ) => {
     // === CONTEXT HOOK ===
-    const { todo_list, AddTodo } = useContext( TodoContext );
+    const { AddTodo } = useContext( TodoContext );
 
     // === STATE HOOK ===
     const [ new_todo, setNewTodo ] = useState( '' );
