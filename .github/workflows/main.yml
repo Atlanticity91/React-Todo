@@ -35,5 +35,5 @@ jobs:
       with:
         branch: gh-pages  # The branch to deploy to (default is 'gh-pages')
         folder: build     # The folder to deploy (for React apps, it's the 'build' folder)
-        token: ${REACT_TODO}
+        token: ${{ secrets.REACT_TOKEN }}
 
