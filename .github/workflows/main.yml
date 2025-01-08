@@ -24,6 +24,9 @@ jobs:
     - name: Install dependencies
       run: npm install --legacy-peer-deps 
 
+    - name : Install ajv for react 19 compat
+      run: npm install ajv@latest ajv-keywords@latest
+
     - name: Build the app
       run: npm run build
 
